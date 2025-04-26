@@ -1,0 +1,25 @@
+name: Deploy Dz_Khadamaty Bot
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'  # ولا الاصدار لي تخدمي بيه
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the bot
+        run: node index.js
